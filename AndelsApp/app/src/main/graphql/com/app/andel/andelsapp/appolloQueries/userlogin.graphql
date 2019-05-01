@@ -1,0 +1,7 @@
+
+mutation signIn{
+    SignIn(input:{username:"shaiaz", password:"awd"})
+    {
+    access_token
+    }
+    }
