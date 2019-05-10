@@ -1,0 +1,7 @@
+query getSubPointsByPointsId{
+  getSubpoints {
+    subpoints_id
+    title
+    fk_points_id
+  }
+}

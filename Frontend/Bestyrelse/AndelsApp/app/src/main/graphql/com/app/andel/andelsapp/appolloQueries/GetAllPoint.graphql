@@ -1,0 +1,7 @@
+query getAllPoints {
+  getPoints {
+    point_id
+    title
+  }
+}
+

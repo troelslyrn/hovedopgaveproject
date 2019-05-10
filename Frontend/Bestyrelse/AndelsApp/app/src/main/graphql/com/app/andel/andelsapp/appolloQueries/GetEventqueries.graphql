@@ -1,0 +1,15 @@
+query getallpostsqueries {
+  getEvents{
+    event_id
+    title
+    timeEnd
+    timeStart
+    fk_user_id
+    fk_system_id
+  }
+}
+
+
+
+
+

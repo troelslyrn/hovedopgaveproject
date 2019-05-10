@@ -1,0 +1,7 @@
+query getAllActivities {
+  getActivitys {
+    title
+    fk_event_id
+    activity_id
+  }
+}

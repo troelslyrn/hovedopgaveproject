@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">AndelsApp</string>
+    <string-array name="klagerArray">
+        <item>klage klage jeg vil klage</item>
+        <item>Mathias J</item>
+        <item>Stefan</item>
+        <item>Elias</item>
+        <item>Lille Mathias</item>
+        <item>Michale</item>
+        <item>Knud</item>
+        <item>Janne</item>
+    </string-array>
+
+    <string-array name="renoveringArray">
+        <item>Gulvet og taget mangler</item>
+        <item>Mathias J</item>
+        <item>Stefan</item>
+        <item>Elias</item>
+        <item>Lille Mathias</item>
+        <item>Michale</item>
+        <item>Knud</item>
+        <item>Janne</item>
+    </string-array>
+
+    <string-array name="refaretArray">
+        <item>Vi blev fulde sidste da vi havde møde</item>
+        <item>Mathias J</item>
+        <item>Stefan</item>
+        <item>Elias</item>
+        <item>Lille Mathias</item>
+        <item>Michale</item>
+        <item>Knud</item>
+        <item>Janne</item>
+    </string-array>
+
+
+    <string-array name="DropDownArray">
+        <item>Troels</item>
+        <item>Mathias J</item>
+        <item>Stefan</item>
+        <item>Elias</item>
+        <item>Lille Mathias</item>
+        <item>Michale</item>
+        <item>Knud</item>
+        <item>Janne</item>
+    </string-array>
+</resources>
