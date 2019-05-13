@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         AgendaAfholderKnap2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, AktivitetOversigt.class));
+                startActivity(new Intent(MainActivity.this, MødeOversigt.class));
             }
         });
 

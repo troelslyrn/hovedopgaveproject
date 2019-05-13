@@ -45,6 +45,7 @@ private ArrayAdapter<Point> adapter;
         OverPunkterAgenda = new ArrayList<Point>();
         adapter = new ArrayAdapter<Point>(this, android.R.layout.activity_list_item,android.R.id.text1,OverPunkterAgenda);
     }
+
     private void getPosts(){
         MyApolloClient.getMyapolloClient().query(
                 GetAllPointsQuery.builder().build()).enqueue(new ApolloCall.Callback<GetAllPointsQuery.Data>() {
@@ -55,11 +56,12 @@ private ArrayAdapter<Point> adapter;
                     for (int i = 0; i < response.data().getPoints().size(); i++) {
                        int point_id = Integer.parseInt(response.data().getPoints().get(i).point_id());
                        String title = response.data().getPoints().get(i).title();
-                        Point point = new Point(point_id, title);
-                        //henter alle titler på overpunkter fra endpoint
-                       Bundle bundlemeetinggetter = getIntent().getExtras();
-                       int meetingid = bundlemeetinggetter.getInt("Meeting ID");
-                       if (meetingid == point.getPoint_id()){
+                       int fk_activity_id = Integer.parseInt(response.data().getPoints().get(i).fk_activity_id());
+                       Point point = new Point(point_id, title, fk_activity_id);
+                       //henter alle titler på overpunkter fra endpoint
+                       Bundle activitybundle = getIntent().getExtras();
+                       int activity_id = activitybundle.getInt("ActivityID");
+                       if (activity_id == point.getFk_activity_id()){
                            OverPunkterAgenda.add(point);
                        } else {
                            Log.d(TAG, "could not find any point");
@@ -79,9 +81,6 @@ private ArrayAdapter<Point> adapter;
                                     if (position == i){
                                         adapter.getItem(i).getTitle();
                                         Intent punktIntent = new Intent(view.getContext(), AgendaUnderpunkt.class);
-                                        //Bundle Pointbundle = new Bundle();
-                                        //Pointbundle.putInt("PointKey",OverPunkterAgenda.get(i).getPoint_id());
-                                        //punktIntent.putExtra("pointkey",Pointbundle);
                                         punktIntent.putExtra("Point ID",OverPunkterAgenda.get(i).getPoint_id()).toString();
                                         punktIntent.putExtra("Point Title",OverPunkterAgenda.get(i).getTitle());
                                         startActivityForResult(punktIntent,0);

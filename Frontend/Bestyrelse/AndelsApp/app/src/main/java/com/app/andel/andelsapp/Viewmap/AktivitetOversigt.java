@@ -30,11 +30,13 @@ public class AktivitetOversigt extends AppCompatActivity {
     private ArrayList<Aktivity>AktivitetPunkterAgenda;
     private ArrayAdapter<Aktivity> adapter;
     private static final String TAG = "AgendaOverpunkt";
+    private static final String TAG2 = "VIRKER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! måske";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aktivitet_oversigt);
+        getAktivitys();
 
         ImageButton home =(ImageButton)findViewById(R.id.HomeButtonAktivitetOversigt);
         home.setOnClickListener(new View.OnClickListener() {
@@ -65,13 +67,13 @@ public class AktivitetOversigt extends AppCompatActivity {
                             String Aktivitytitle = response.data().getActivitys().get(i).title();
 
                             Aktivity aktivity = new Aktivity(aktivityId,aktivityFK,Aktivitytitle);
-                            //henter alle titler på aktivity fra endpoint
                             Bundle bundleAktivi = getIntent().getExtras();
-                            int aktiviID = bundleAktivi.getInt("aktivi ID");
-                            if (aktiviID == aktivity.getActivity_id()){
+                            int meetingID = bundleAktivi.getInt("Meeting ID");
+                            if (meetingID == aktivity.getFk_event_id()){
+                                Log.d(TAG2, meetingID + " " + aktivity.getFk_event_id());
                                 AktivitetPunkterAgenda.add(aktivity);
-                            } else {
-                                Log.d(TAG, "could not find any point");
+                           } else {
+                                Log.d(TAG2,"virker");
                             }
                         }
                     }
@@ -88,12 +90,7 @@ public class AktivitetOversigt extends AppCompatActivity {
                                         if (position == i){
                                             adapter.getItem(i).getTitle();
                                             Intent punktIntent = new Intent(view.getContext(), AgendaOverpunkt.class);
-                                            //Bundle Pointbundle = new Bundle();
-                                            //Pointbundle.putInt("PointKey",OverPunkterAgenda.get(i).getPoint_id());
-                                            //punktIntent.putExtra("pointkey",Pointbundle);
-                                            punktIntent.putExtra("AktivityID",AktivitetPunkterAgenda.get(i).getActivity_id()).toString();
-                                            punktIntent.putExtra("Aktivity Title",AktivitetPunkterAgenda.get(i).getTitle());
-                                            punktIntent.putExtra("Aktivity FK",AktivitetPunkterAgenda.get(i).getFk_event_id());
+                                            punktIntent.putExtra("ActivityID",AktivitetPunkterAgenda.get(i).getActivity_id()).toString();
                                             startActivityForResult(punktIntent,0);
                                         }
                                     }

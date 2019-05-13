@@ -95,7 +95,6 @@ public class AgendaUnderpunkt extends AppCompatActivity {
                         subPointsList.add(subpoint);
                         }else{
                             Log.d(TAG1, "could not find any subpoints");
-                           // Toast.makeText(getBaseContext(),"Could not find any subpoints for this point",Toast.LENGTH_LONG).show();
                         }
                     }
                 }

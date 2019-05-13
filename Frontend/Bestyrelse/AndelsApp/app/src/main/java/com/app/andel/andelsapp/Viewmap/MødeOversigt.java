@@ -77,9 +77,9 @@ public class MødeOversigt extends AppCompatActivity {
                                 for (int i = 0;  i < MeetingArrayList.size()  ; i++) {
                                     if (position == i){
                                         adapter.getItem(i).getTitle();
-                                       Intent punktIntent = new Intent(view.getContext(), AgendaOverpunkt.class);
+                                       Intent punktIntent = new Intent(view.getContext(), AktivitetOversigt.class);
                                         punktIntent.putExtra("Meeting ID",MeetingArrayList.get(i).getEvent_id());
-                                       punktIntent.putExtra("meeting Title",MeetingArrayList.get(i).getTitle());
+                                        punktIntent.putExtra("meeting Title",MeetingArrayList.get(i).getTitle());
                                         startActivityForResult(punktIntent,0);
                                     }
                                 }

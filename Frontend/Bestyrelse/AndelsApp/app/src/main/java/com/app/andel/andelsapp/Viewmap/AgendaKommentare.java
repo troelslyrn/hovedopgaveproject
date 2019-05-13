@@ -1,9 +1,16 @@
 package com.app.andel.andelsapp.Viewmap;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
@@ -11,6 +18,8 @@ import com.apollographql.apollo.exception.ApolloException;
 import com.app.andel.andelsapp.Controller.MyApolloClient;
 import com.app.andel.andelsapp.R;
 import com.app.andel.andelsapp.appolloQueries.MakecommentMutation;
+
+import java.util.ArrayList;
 
 import javax.annotation.Nonnull;
 
@@ -22,16 +31,18 @@ public class AgendaKommentare extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_punkt2);
         // getPosts();
-        //final ArrayList<String> ArrayInputList = new ArrayList<>();
-       // Button savebutton;
-        // savebutton = findViewById(R.id.SaveNow2);
-        final EditText konklusionsskriver;
-        konklusionsskriver = findViewById(R.id.Writer2);
-        //final ListView konklusionsview = findViewById(R.id.Konklusion2);
+        final ArrayList<String> ArrayInputList = new ArrayList<>();
+        Button savebutton;
+        //
+        ListView listViewkommentar = findViewById(R.id.Konklusion2);
+        savebutton = findViewById(R.id.SaveNow2);
+        final EditText  konklussionsskriver;
+        konklussionsskriver = findViewById(R.id.Writer2);
+        final ListView konklusionsview = findViewById(R.id.Konklusion2);
 
-        makecomment();
+      //  makecomment();
 
-       /* Button tilbageknap = findViewById(R.id.BackButtonPunkt2);
+        Button tilbageknap = findViewById(R.id.BackButtonPunkt2);
         tilbageknap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +60,7 @@ public class AgendaKommentare extends AppCompatActivity {
         savebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String getinput = konklusionsskriver.getText().toString();
+                String getinput = konklussionsskriver.getText().toString();
 
                 if (ArrayInputList.contains(getinput)) {
 
@@ -61,12 +72,15 @@ public class AgendaKommentare extends AppCompatActivity {
                         ArrayInputList.add(getinput);
                         ArrayAdapter<String> inputAdapter = new ArrayAdapter<String>(AgendaKommentare.this, android.R.layout.simple_list_item_1, ArrayInputList);
                         konklusionsview.setAdapter(inputAdapter);
+
                     }
                 }
 
             }
         });
-*/
+
+
+
     }
 
         private void makecomment(){
