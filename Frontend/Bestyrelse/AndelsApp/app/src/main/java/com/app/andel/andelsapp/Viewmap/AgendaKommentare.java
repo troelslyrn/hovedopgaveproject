@@ -26,12 +26,13 @@ import javax.annotation.Nonnull;
 public class AgendaKommentare extends AppCompatActivity {
     private static final String TAG = "punkt123";
     //private static final String TAG = "AgendaKommentare";
+    ArrayList<String> ArrayInputList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_punkt2);
         // getPosts();
-        final ArrayList<String> ArrayInputList = new ArrayList<>();
         Button savebutton;
         //
         ListView listViewkommentar = findViewById(R.id.Konklusion2);
@@ -70,25 +71,23 @@ public class AgendaKommentare extends AppCompatActivity {
                         Toast.makeText(getBaseContext(), "Der er ikke registeret noget", Toast.LENGTH_LONG).show();
                     } else {
                         ArrayInputList.add(getinput);
-                        ArrayAdapter<String> inputAdapter = new ArrayAdapter<String>(AgendaKommentare.this, android.R.layout.simple_list_item_1, ArrayInputList);
-                        konklusionsview.setAdapter(inputAdapter);
-
+                        makecomment();
+                        // ArrayAdapter<String> inputAdapter = new ArrayAdapter<String>(AgendaKommentare.this, android.R.layout.simple_list_item_1, ArrayInputList);
+                        // konklusionsview.setAdapter(inputAdapter);
                     }
                 }
-
             }
         });
-
-
-
     }
 
         private void makecomment(){
 
-            EditText konklussionsskriver = (EditText) findViewById(R.id.Writer2);
+           // EditText konklussionsskriver = (EditText) findViewById(R.id.Writer2);
+            for (int i = 0; i < ArrayInputList.size(); i++) {
+
             MyApolloClient.getMyapolloClient().mutate(
-                    MakecommentMutation.builder()
-                            .data(konklussionsskriver.getText().toString()).build()).enqueue(new ApolloCall.Callback<MakecommentMutation.Data>(){
+                    MakecommentMutation.builder().data(ArrayInputList.get(i))
+                           .build()).enqueue(new ApolloCall.Callback<MakecommentMutation.Data>(){
 
                 @Override
                 public void onResponse(@Nonnull Response<MakecommentMutation.Data> response) {
@@ -96,7 +95,7 @@ public class AgendaKommentare extends AppCompatActivity {
                     @Override
                     public void run() {
                         Log.d(TAG,"WORKS???:");
-                       //Toast.makeText(AgendaKommentare.this, "Added success", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(AgendaKommentare.this, "Added success", Toast.LENGTH_SHORT).show();
                     }
                 });
                 }
@@ -106,9 +105,8 @@ public class AgendaKommentare extends AppCompatActivity {
 
                 }
             });
-
-
     }
+            }
 }
     //ListView konklusionsview = findViewById(R.id.Konklusion2);
 //ArrayList<String> arrayListDatabaseoutput = new ArrayList<>();

@@ -1,12 +1,7 @@
-mutation makecomment (
-    $id: ID!,
-    $data: String!)
+mutation makecomment($id: ID!, $data: String!)
     {
-    updateSubpoints(
-    id: $id,
-    data: $data
-    )
+    updateSubpoints(id: $id, data: $data)
     {
     data
     }
-    }
+}
