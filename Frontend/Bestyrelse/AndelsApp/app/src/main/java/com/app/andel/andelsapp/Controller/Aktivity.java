@@ -1,4 +1,4 @@
-package com.app.andel.andelsapp.Model;
+package com.app.andel.andelsapp.Controller;
 
 public class Aktivity {
     int  activity_id;

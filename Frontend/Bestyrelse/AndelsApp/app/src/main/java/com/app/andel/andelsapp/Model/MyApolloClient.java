@@ -1,8 +1,6 @@
-package com.app.andel.andelsapp.Controller;
+package com.app.andel.andelsapp.Model;
 
 import com.apollographql.apollo.ApolloClient;
-
-import java.net.URL;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

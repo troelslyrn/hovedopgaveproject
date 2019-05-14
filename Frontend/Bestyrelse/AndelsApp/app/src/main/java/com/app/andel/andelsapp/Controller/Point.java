@@ -1,4 +1,4 @@
-package com.app.andel.andelsapp.Model;
+package com.app.andel.andelsapp.Controller;
 
 public class Point {
     private int point_id;

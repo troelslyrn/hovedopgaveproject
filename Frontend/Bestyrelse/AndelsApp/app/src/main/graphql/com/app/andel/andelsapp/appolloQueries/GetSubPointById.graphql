@@ -3,5 +3,6 @@ query getSubPointsByPointsId{
     subpoints_id
     title
     fk_points_id
+
   }
 }

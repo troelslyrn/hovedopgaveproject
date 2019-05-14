@@ -1,9 +1,10 @@
-package com.app.andel.andelsapp.Model;
+package com.app.andel.andelsapp.Controller;
 
 public class SubPoint {
         private int subpoints_id;
         private int fk_points_id;
         private String title;
+        private String makecomment;
 
     public void setSubpoints_id(int subpoints_id) {
         this.subpoints_id = subpoints_id;
@@ -26,6 +27,19 @@ public class SubPoint {
         this.title = title;
         this.fk_points_id = fk_points_id;
 
+    }
+
+    public String getMakecomment() {
+        return makecomment;
+    }
+
+    public void setMakecomment(String makecomment) {
+        this.makecomment = makecomment;
+    }
+
+    public SubPoint(int subpoints_id, String makecomment) {
+        this.subpoints_id = subpoints_id;
+        this.makecomment = makecomment;
     }
 
     public int getSubpoints_id() {

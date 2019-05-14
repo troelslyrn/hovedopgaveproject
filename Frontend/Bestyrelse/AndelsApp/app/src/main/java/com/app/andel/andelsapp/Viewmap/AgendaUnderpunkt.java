@@ -11,13 +11,13 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.app.andel.andelsapp.Model.Point;
+import com.app.andel.andelsapp.Controller.Point;
 import com.app.andel.andelsapp.appolloQueries.GetSubPointsByPointsIdQuery;
 import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
-import com.app.andel.andelsapp.Model.SubPoint;
-import com.app.andel.andelsapp.Controller.MyApolloClient;
+import com.app.andel.andelsapp.Controller.SubPoint;
+import com.app.andel.andelsapp.Model.MyApolloClient;
 import com.app.andel.andelsapp.R;
 
 
@@ -111,6 +111,7 @@ public class AgendaUnderpunkt extends AppCompatActivity {
                                     if (position == i){
                                             adapter.getItem(i).getTitle();
                                             Intent punktIntent = new Intent(view.getContext(), AgendaKommentare.class);
+                                            punktIntent.putExtra("subpointID", subPointsList.get(i).getSubpoints_id());
                                             startActivityForResult(punktIntent,0);
                                         }
                                     }

@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -15,7 +14,8 @@ import android.widget.Toast;
 import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
-import com.app.andel.andelsapp.Controller.MyApolloClient;
+import com.app.andel.andelsapp.Controller.SubPoint;
+import com.app.andel.andelsapp.Model.MyApolloClient;
 import com.app.andel.andelsapp.R;
 import com.app.andel.andelsapp.appolloQueries.MakecommentMutation;
 
@@ -26,7 +26,10 @@ import javax.annotation.Nonnull;
 public class AgendaKommentare extends AppCompatActivity {
     private static final String TAG = "punkt123";
     //private static final String TAG = "AgendaKommentare";
-    ArrayList<String> ArrayInputList = new ArrayList<>();
+    ArrayList<SubPoint> ArrayInputList = new ArrayList<>();
+   // private   Bundle bundleSub = getIntent().getExtras();
+    //private int subId = bundleSub.getInt("subpointID");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -40,6 +43,8 @@ public class AgendaKommentare extends AppCompatActivity {
         final EditText  konklussionsskriver;
         konklussionsskriver = findViewById(R.id.Writer2);
         final ListView konklusionsview = findViewById(R.id.Konklusion2);
+        //SubPoint subPoint = new SubPoint
+
 
       //  makecomment();
 
@@ -70,7 +75,10 @@ public class AgendaKommentare extends AppCompatActivity {
                     if (getinput == null || getinput.trim().equals("")) {
                         Toast.makeText(getBaseContext(), "Der er ikke registeret noget", Toast.LENGTH_LONG).show();
                     } else {
-                        ArrayInputList.add(getinput);
+                        Bundle bundleSub = getIntent().getExtras();
+                        int subId = bundleSub.getInt("subpointID");
+                        SubPoint subPoint =new SubPoint(subId, getinput);
+                        ArrayInputList.add(subPoint);
                         makecomment();
                         // ArrayAdapter<String> inputAdapter = new ArrayAdapter<String>(AgendaKommentare.this, android.R.layout.simple_list_item_1, ArrayInputList);
                         // konklusionsview.setAdapter(inputAdapter);
@@ -86,7 +94,7 @@ public class AgendaKommentare extends AppCompatActivity {
             for (int i = 0; i < ArrayInputList.size(); i++) {
 
             MyApolloClient.getMyapolloClient().mutate(
-                    MakecommentMutation.builder().data(ArrayInputList.get(i))
+                    MakecommentMutation.builder().data(ArrayInputList.get(i).getMakecomment()).id(String.valueOf(ArrayInputList.get(i).getSubpoints_id()))
                            .build()).enqueue(new ApolloCall.Callback<MakecommentMutation.Data>(){
 
                 @Override

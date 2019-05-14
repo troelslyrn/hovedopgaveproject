@@ -1,4 +1,4 @@
-package com.app.andel.andelsapp.Model;
+package com.app.andel.andelsapp.Controller;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;

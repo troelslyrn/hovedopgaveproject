@@ -1,7 +1,4 @@
-package com.app.andel.andelsapp.Model;
-
-import java.time.LocalDateTime;
-import java.util.Date;
+package com.app.andel.andelsapp.Controller;
 
 public class Event {
     int event_id;
