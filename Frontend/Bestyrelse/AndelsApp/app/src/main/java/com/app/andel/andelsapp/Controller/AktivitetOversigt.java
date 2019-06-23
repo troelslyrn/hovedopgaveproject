@@ -1,4 +1,4 @@
-package com.app.andel.andelsapp.Viewmap;
+package com.app.andel.andelsapp.Controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +14,7 @@ import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.app.andel.andelsapp.Model.MyApolloClient;
-import com.app.andel.andelsapp.Controller.Aktivity;
+import com.app.andel.andelsapp.Model.Aktivity;
 import com.app.andel.andelsapp.R;
 import com.app.andel.andelsapp.appolloQueries.GetAllActivitiesQuery;
 
@@ -29,6 +29,7 @@ public class AktivitetOversigt extends AppCompatActivity {
     private ArrayAdapter<Aktivity> adapter;
     private static final String TAG = "AgendaOverpunkt";
     private static final String TAG2 = "VIRKER !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! måske";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,12 +86,16 @@ public class AktivitetOversigt extends AppCompatActivity {
                                 //den benytter sig ag positionerne på listen fra 0 til 0< X
                                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                     for (int i = 0;  i < AktivitetPunkterAgenda.size()  ; i++) {
-                                        if (position == i){
-                                            adapter.getItem(i).getTitle();
-                                            Intent punktIntent = new Intent(view.getContext(), AgendaOverpunkt.class);
-                                            punktIntent.putExtra("ActivityID",AktivitetPunkterAgenda.get(i).getActivity_id()).toString();
-                                            startActivityForResult(punktIntent,0);
-                                        }
+
+                                            if (position == i) {
+                                                adapter.getItem(i).getTitle();
+                                                Intent punktIntent = new Intent(view.getContext(), AgendaOverpunkt.class);
+                                                punktIntent.putExtra("ActivityID", AktivitetPunkterAgenda.get(i).getActivity_id()).toString();
+                                                startActivityForResult(punktIntent, 0);
+
+                                            }
+
+
                                     }
                                 }
                             });

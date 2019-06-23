@@ -1,4 +1,4 @@
-package com.app.andel.andelsapp.Controller;
+package com.app.andel.andelsapp.Model;
 
 public class SubPoint {
         private int subpoints_id;

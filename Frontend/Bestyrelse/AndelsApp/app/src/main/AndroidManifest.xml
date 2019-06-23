@@ -20,21 +20,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Viewmap.KommentareTilAgenda"></activity>
-        <activity android:name=".Viewmap.MainActivity">
+        <activity android:name=".Controller.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controller.Agenda" />
-        <activity android:name=".Viewmap.AgendaOverpunkt" />
-        <activity android:name=".Viewmap.AgendaUnderpunkt" />
-        <activity android:name=".Viewmap.AgendaKommentare" />
-        <activity android:name=".AgendaMappe.PunktMappe.konklussionskriver" />
-        <activity android:name=".Viewmap.MødeOversigt" />
-        <activity android:name=".Viewmap.AktivitetOversigt" />
+        <activity android:name=".Model.Agenda" />
+        <activity android:name=".Controller.AgendaOverpunkt" />
+        <activity android:name=".Controller.AgendaUnderpunkt" />
+        <activity android:name=".Controller.AgendaKommentare" />
+        <activity android:name=".Controller.MødeOversigt" />
+        <activity android:name=".Controller.AktivitetOversigt" />
     </application>
 
 </manifest>

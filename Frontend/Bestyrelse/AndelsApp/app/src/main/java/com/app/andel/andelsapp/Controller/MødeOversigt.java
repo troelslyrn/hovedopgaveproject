@@ -1,4 +1,4 @@
-package com.app.andel.andelsapp.Viewmap;
+package com.app.andel.andelsapp.Controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -14,7 +14,7 @@ import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import com.app.andel.andelsapp.Model.MyApolloClient;
-import com.app.andel.andelsapp.Controller.Event;
+import com.app.andel.andelsapp.Model.Event;
 import com.app.andel.andelsapp.R;
 import com.app.andel.andelsapp.appolloQueries.GetallpostsqueriesQuery;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.app.andel.andelsapp.Viewmap;
+package com.app.andel.andelsapp.Controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +13,7 @@ import android.widget.ListView;
 import com.apollographql.apollo.ApolloCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
-import com.app.andel.andelsapp.Controller.Point;
+import com.app.andel.andelsapp.Model.Point;
 import com.app.andel.andelsapp.Model.MyApolloClient;
 import com.app.andel.andelsapp.appolloQueries.GetAllPointsQuery;
 import com.app.andel.andelsapp.R;

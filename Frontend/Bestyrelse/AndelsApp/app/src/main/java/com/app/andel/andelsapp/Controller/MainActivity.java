@@ -1,4 +1,4 @@
-package com.app.andel.andelsapp.Viewmap;
+package com.app.andel.andelsapp.Controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
